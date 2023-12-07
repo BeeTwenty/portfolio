@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sindre's Portfolio{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+    {% block navbar %}
+   <nav>
+       <nav class="navbar">
+           <div class="navbar-brand">Sindre</div>
+           <div class="navbar-links">
+               <a href="#projects" class="navbar-item">Projects</a>
+               <a href="#blog" class="navbar-item">Blog</a>
+               <a href="#about" class="navbar-item">About</a>
+           </div>
+
+   </nav>
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer %}
+    <div class="footer">
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Sindre's Portfolio:
+            <a class="text-dark" href="https://sindresportfolio.com/">sindresportfolio.com</a>
+        </div>
+    </footer>
+</div>
+    {% endblock %}
+</body>
+</html>
