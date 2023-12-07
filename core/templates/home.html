@@ -36,24 +36,26 @@
     </div>
 </div>
 
-    <section id="latest-project">
-        <div class="container">
-            
-                <div class="card" id="light">
-                    <h2>Latest Project</h2>
-              <article class="project">
-                <img src="{% static 'images/latest-project-thumbnail.jpg' %}" alt="Latest Project Thumbnail">
+<section id="latest-project">
+    <div class="container">
+        <div class="card" id="light">
+            <h2>Latest Project</h2>
+            <article class="project">
+                {% if latest_project.image %}
+                    <img src="{{ latest_project.image.url }}" class="img-size" alt="{{ latest_project.title }}">
+                {% else %}
+                    <!-- Default image if no image is available -->
+                    <img src="{% static 'images/default-thumbnail.jpg' %}" alt="Default Image">
+                {% endif %}
                 <div class="project-details">
-                  <h3>Project Title</h3>
-                  <p>Short description of the latest project I have worked on.</p>
-                 
+                    <h3>{{ latest_project.title }}</h3>
+                    <p>{{ latest_project.description }}</p>
                 </div>
-              </article>
-                </div>
-                
-            
+            </article>
         </div>
-    </section>
+    </div>
+</section>
+
 <div class="card" id="dark">
     <div class="short-info">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.

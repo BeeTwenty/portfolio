@@ -55,7 +55,7 @@ html {
     height: 60px; /* Adjust the height as required */
     line-height: 60px; /* Aligns links vertically */
     position: fixed; /* Fixed positioning */
-    top: -100%; /* Initially hidden above the viewport */
+    top: 0; /* Initially hidden above the viewport */
     width: 100%; /* Full width */
     z-index: 3; /* Higher z-index to stay above other content */
     transition: top 0.5s ease; /* Smooth transition */
@@ -69,6 +69,10 @@ html {
     padding: 0 20px;
     text-decoration: none;
     font-size: 1.5em; /* Adjust the font size as needed */
+    text-decoration: none;
+  }
+  .navbar a {
+    color: white;
   }
 
   .navbar .navbar-links {
@@ -124,6 +128,12 @@ html {
     margin: 10px;
   }
 
+  .img-size {
+    width: 100%;
+    height: 32vh;
+    object-fit: cover;
+  }
+
   #dark.card {
     background-color: #808080; /* Gray background */
     color: white;
@@ -138,3 +148,10 @@ html {
     margin: 0 auto;
     padding: 20px;
   }
+
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
