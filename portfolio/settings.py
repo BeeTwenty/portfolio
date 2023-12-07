@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'projects',
+    'blog',
+    'markdownx',
+    'martor',
 ]
 
 MIDDLEWARE = [
