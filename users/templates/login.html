@@ -1,0 +1,37 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-one-third">
+                    <h2 class="title has-text-centered">Login</h2>
+                    <form method="post" class="box">
+                        {% csrf_token %}
+                        <div class="field">
+                            <label class="label">Username</label>
+                            <div class="control">
+                                {{ form.username|add_class:'input' }}
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control">
+                                {{ form.password|add_class:'input' }}
+                            </div>
+                        </div>
+                        <button class="button is-primary is-fullwidth" type="submit">Login</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
