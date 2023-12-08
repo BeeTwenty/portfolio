@@ -2,90 +2,104 @@
 {% load static %}
 {% block content %}
 
-
-
-    <section id="landing">
-      <div class="placeholder-text">
-        <h1>Sindre Berge</h1>
-        <p>Self Though IT Enthusiast</p>
-      </div>
-      <div class="scroll-for-more" onclick="window.scrollBy(0, window.innerHeight)">
-        Scroll for more
-        <i class="scroll-arrow down"></i>
-      </div>
+<section class="hero is-medium is-primary is-bold" id="landing">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Sindre Berge
+      </h1>
+      <h2 class="subtitle">
+        Self-Taught IT Enthusiast
+      </h2>
+    </div>
+  </div>
+  <div class="hero-foot has-text-centered">
+  </div>
 </section>
 
-
-<div class="container">
-<section id="main-content">
-    <div class="card" id="dark">
-    <div class="info-area">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Nullam ultricies, nunc ut dignissim commodo, lorem erat fringilla metus, in dignissim nibh massa quis libero.
-          Aliquam blandit egestas ante, id placerat purus rutrum in.
-           Aliquam pharetra mi ut leo tempus ultrices. Ut laoreet mauris ut facilisis ullamcorper.
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Nullam ultricies, nunc ut dignissim commodo, lorem erat fringilla metus, in dignissim nibh massa quis libero.
-            Aliquam blandit egestas ante, id placerat purus rutrum in.
-             Aliquam pharetra mi ut leo tempus ultrices. Ut laoreet mauris ut facilisis ullamcorper.
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Nullam ultricies, nunc ut dignissim commodo, lorem erat fringilla metus, in dignissim nibh massa quis libero.
-          Aliquam blandit egestas ante, id placerat purus rutrum in.
-           Aliquam pharetra mi ut leo tempus ultrices. Ut laoreet mauris ut facilisis ullamcorper.
-        </p>
+<div class="container mt-6">
+  <section class="section" id="main-content">
+    <div class="box" id="dark">
+      {% if info1 %}
+        <p>{{ info1.info }}</p>
+      {% else %}
+        <p>No information available</p>
+      {% endif %}
     </div>
+  </section>
 </div>
 
-<section id="latest-project">
+
+  <section class="section" id="latest-project">
     <div class="container">
-        <div class="card" id="light">
-            <h2>Latest Project</h2>
-            <article class="project">
-                {% if latest_project.image %}
-                    <img src="{{ latest_project.image.url }}" class="img-size" alt="{{ latest_project.title }}">
-                {% else %}
-                    <!-- Default image if no image is available -->
-                    <img src="{% static 'images/default-thumbnail.jpg' %}" alt="Default Image">
-                {% endif %}
-                <div class="project-details">
-                    <h3>{{ latest_project.title }}</h3>
-                    <p>{{ latest_project.description }}</p>
+        <div class="columns is-centered">
+            <div class="column-is-small">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Latest Project
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            {% if latest_project.image %}
+                                <img src="{{ latest_project.image.url }}" alt="{{ latest_project.title }}" class="image">
+                            {% else %}
+                                <img src="{% static 'images/default-thumbnail.jpg' %}" alt="Default Image" class="image">
+                            {% endif %}
+                            <h2><strong>{{ latest_project.title }}</strong></h2>
+                            <p>{{ latest_project.description }}</p>
+                        </div>
+                    </div>
                 </div>
-            </article>
+            </div>
         </div>
     </div>
 </section>
 
-<div class="card" id="dark">
-    <div class="short-info">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam ultricies, nunc ut dignissim commodo, lorem erat fringilla metus, in dignissim nibh massa quis libero.
-         Aliquam blandit egestas ante, id placerat purus rutrum in.
-          Aliquam pharetra mi ut leo tempus ultrices. Ut laoreet mauris ut facilisis ullamcorper.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nullam ultricies, nunc ut dignissim commodo, lorem erat fringilla metus, in dignissim nibh massa quis libero.
-           Aliquam blandit egestas ante, id placerat purus rutrum in.
-            Aliquam pharetra mi ut leo tempus ultrices. Ut laoreet mauris ut facilisis ullamcorper.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam ultricies, nunc ut dignissim commodo, lorem erat fringilla metus, in dignissim nibh massa quis libero.
-             Aliquam blandit egestas ante, id placerat purus rutrum in.
-              Aliquam pharetra mi ut leo tempus ultrices. Ut laoreet mauris ut facilisis ullamcorper.</p>
+
+<div class="container mt-6">
+  <section class="section" id="main-content">
+    <div class="box" id="dark">
+      {% if info2 %}
+        <p>{{ info2.info }}</p>
+      {% else %}
+        <p>No information available</p>
+      {% endif %}
     </div>
+  </section>
 </div>
 
-<section id="latest-blog-post">
-    <div class="card" id="light">
-  <h2>Latest Blog Post</h2>
-  <article class="blog-post">
-    <img src="{% static 'images/latest-blog-thumbnail.jpg' %}" alt="Latest Blog Post Thumbnail">
-    <div class="post-details">
-      <h3>Blog Post Title</h3>
-      <p>Introduction to the latest blog post.</p>
-    </div>
-    </div>
-  </article>
+<section class="section" id="latest-blog-post">
+  <div class="container">
+      <div class="columns is-centered">
+          <div class="column is-half">
+              <div class="card">
+                  <header class="card-header">
+                      <p class="card-header-title">
+                          Latest Blog Post
+                      </p>
+                  </header>
+                  <div class="card-content">
+                      <div class="content">
+                          <article class="media">
+                              <div class="media-content">
+                                  <div class="content">
+                                    
+                                      <strong>{{ latest_blog.title }}</strong>
+                                      <p>{{ latest_blog.content|safe|slice:":200" }}</p>
+                                      <br>
+                                      <p>Continue reading in the <a href="{% url 'blog' %}">Blog</p>
+                                  </div>
+                              </div>
+                          </article>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
-    
-</section>
+
 </div>
 {% endblock %}

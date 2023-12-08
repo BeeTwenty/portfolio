@@ -5,21 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Sindre's Portfolio{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
     <script src="{% static 'script.js' %}"></script>
 </head>
 <body>
     {% block navbar %}
-   <nav>
-       <nav class="navbar">
-           <div class="navbar-brand"><a href="{% url 'home' %}">Sindre</a></div>
-           <div class="navbar-links">
-               <a href="{% url 'projects' %}" class="navbar-item">Projects</a>
-               <a href="{% url 'blog' %}" class="navbar-item">Blog</a>
-               <a href="#about" class="navbar-item">About</a>
-           </div>
-
-   </nav>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{% url 'home' %}">
+                Sindre
+            </a>
+    
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="{% url 'projects' %}" class="navbar-item">
+                    Projects
+                </a>
+                <a href="{% url 'blog' %}" class="navbar-item">
+                    Blog
+                </a>
+                <a href="#about" class="navbar-item">
+                    About
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary">
+                      <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                      Log in
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </nav>
+    
     {% endblock %}
 
     {% block content %}
@@ -28,12 +58,12 @@
 
     {% block footer %}
     <div class="footer">
-    <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2023 Sindre's Portfolio:
-            <a class="text-dark" href="https://sindresportfolio.com/">sindresportfolio.com</a>
-        </div>
-    </footer>
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>Portfolio</strong> by <a href="https://me.au11no.com">Sindre Berge</a>.
+            </div>
+          </footer>
 </div>
     {% endblock %}
 </body>

@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'core',
     'projects',
     'blog',
-    'markdownx',
-    'martor',
 ]
 
 MIDDLEWARE = [
