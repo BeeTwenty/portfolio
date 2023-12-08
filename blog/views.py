@@ -24,6 +24,7 @@ def create_blog_post(request):
 def blog_post_detail(request, pk):
     post = get_object_or_404(BlogPost, pk=pk)
     comments = post.comments.all()
+    likes = post.likes.all()
     is_liked = False
     if request.user.is_authenticated:
         is_liked = post.likes.filter(user=request.user).exists()
@@ -52,5 +53,6 @@ def blog_post_detail(request, pk):
         'comments': comments,
         'comment_form': comment_form,
         'is_liked': is_liked,
+        'likes': likes
     }
     return render(request, 'blog_post_detail.html', context)
