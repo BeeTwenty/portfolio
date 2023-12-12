@@ -5,7 +5,10 @@ import markdown
 
 
 def blog_index(request):
+    md = markdown.Markdown(extensions=['fenced_code'])
     posts = BlogPost.objects.order_by('-date_posted')
+    for post in posts:
+        post.content = md.convert(post.content)
     return render(request, 'blog_index.html', {'posts': posts})
 
 def create_blog_post(request):
@@ -20,7 +23,9 @@ def create_blog_post(request):
 
 
 def blog_post_detail(request, pk):
+    md = markdown.Markdown(extensions=['fenced_code'])
     post = get_object_or_404(BlogPost, pk=pk)
+    post.content = md.convert(post.content)
     comments = post.comments.all()
     likes = post.likes.all()
     is_liked = False

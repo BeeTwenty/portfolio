@@ -6,47 +6,66 @@
     <div class="container">
         <h1 class="title">{{ post.title }}</h1>
         <div class="box">
-            {{ post.content|safe }}
-            <p class="">{{ post.total_likes }} Likes</p>
+            {{ post.content | safe }}
+            <br>
+            <div class="level is-mobile">
+                <div class="level-left">
+                    <form method="post" class="level-item">
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                            {% if is_liked %}
+                                <button type="submit" name="like" class="button is-danger is-small">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-thumbs-down"></i>
+                                    </span>
+                                </button>
+                            {% else %}
+                                <button type="submit" name="like" class="button is-success is-small">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-thumbs-up"></i>
+                                    </span>
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    </form>
+                    <p class="level-item">
+                        <span class="icon is-small">
+                            <i class="fas fa-heart has-text-danger"></i>
+                        </span>
+                        <span>{{ post.total_likes }}</span>
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <form method="post">
-            {% csrf_token %}
-            {% if user.is_authenticated %}
-                {% if is_liked %}
-                    <button type="submit" name="like" class="button is-danger">Unlike</button>
-                {% else %}
-                    <button type="submit" name="like" class="button is-success">Like</button>
-                {% endif %}
-            {% endif %}
-        </form>
-<br>
-        <div class="box">
+        <div class="box" id="comments">
             <h2 class="title is-4">Comments</h2>
             {% for comment in comments %}
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
                             <p>{{ comment.text }}<br>
-                            <small>Posted by {{ comment.author }} on {{ comment.created_date }}</small></p>
+                            <small>Posted by <b>{{ comment.author }}</b> on {{ comment.created_date|date:"d M, Y" }}</small></p>
                         </div>
                     </div>
-                    
                 </article>
             {% empty %}
                 <p>No comments yet.</p>
             {% endfor %}
+        </div>
 
-            {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
+            <div class="box" id="comment-form">
+                <h2 class="title is-4">Leave a Comment</h2>
                 <form method="post">
                     {% csrf_token %}
                     {{ comment_form.as_p }}
                     <button type="submit" name="comment" class="button is-link">Submit Comment</button>
                 </form>
-            {% endif %}
-        </div>
-
-        
+                {{ comment_form.media }}
+            </div>
+        {% endif %}
     </div>
 </section>
 {% endblock %}
+

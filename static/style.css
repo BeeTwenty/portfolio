@@ -1,0 +1,157 @@
+body {
+  background-color: #62696e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#landing {
+
+
+    position: relative;
+    height: 100vh;
+    background: url('images/hero.jpg') center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  #landing .placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    
+  }
+
+  #landing .scroll-for-more {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    cursor: pointer;
+  }
+
+  .scroll-arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-top: 5px;
+  }
+
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  .navbar {
+    background-color: #333; /* Change as needed */
+    overflow: hidden;
+    height: 60px; /* Adjust the height as required */
+    line-height: 60px; /* Aligns links vertically */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Initially hidden above the viewport */
+    width: 100%; /* Full width */
+    z-index: 3; /* Higher z-index to stay above other content */
+    transition: top 0.5s ease; /* Smooth transition */
+  }
+
+  .navbar .navbar-brand {
+    float: left; /* Aligns the brand on the left side */
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0 20px;
+    text-decoration: none;
+    font-size: 1.5em; /* Adjust the font size as needed */
+    text-decoration: none;
+  }
+  .navbar a {
+    color: white;
+  }
+
+  .navbar .navbar-links {
+    float: right; /* Aligns the navigation links on the right side */
+  }
+
+  .navbar .navbar-item {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0 16px;
+    text-decoration: none;
+    transition: 0.3s; /* Transition for hover effects */
+  }
+
+  .navbar .navbar-item:hover {
+    background-color: #ddd; /* Color change on hover */
+    color: #555;
+  }
+
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    padding: 100px;
+  }
+
+
+  #main-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card {
+    display: inline-block;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card h2 h3 p {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px;
+  }
+
+  .img-size {
+    width: 100%;
+    height: 32vh;
+    object-fit: cover;
+  }
+
+  #dark.card {
+    background-color: #808080; /* Gray background */
+    color: white;
+  }
+
+  #light.card {
+    background-color: #f2f2f2;  /* light gray background */
+  }
+
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
