@@ -8,6 +8,9 @@ class BlogPost(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
 
+    def get_markdown_content(self):
+        return mark_safe(markdown.markdown(self.content)
+
     def total_likes(self):
         return self.likes.count()
 
