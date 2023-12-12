@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from django.conf import settings
+
 
 
 class BlogPost(models.Model):
