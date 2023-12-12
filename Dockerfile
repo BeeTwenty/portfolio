@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy startup script and grant execution permissions
 COPY startup.sh /code/
-RUN sudo chmod +x /code/startup.sh
+RUN chmod +x /code/startup.sh
 
 # Run startup script when the container launches
 CMD ["/code/startup.sh"]
