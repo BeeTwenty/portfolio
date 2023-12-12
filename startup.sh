@@ -4,6 +4,7 @@
 python manage.py wait_for_db
 
 # Apply database migrations
+python manage.py makemigrations
 python manage.py migrate
 
 # Start the Django app
