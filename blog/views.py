@@ -7,7 +7,7 @@ import markdown
 def blog_index(request):
     posts = BlogPost.objects.order_by('-date_posted')
     
-        post.content = markdown.markdown(post.content)  # Convert Markdown to HTML
+    post.content = markdown.markdown(post.content)  # Convert Markdown to HTML
     return render(request, 'blog_index.html', {'posts': posts})
 
 def create_blog_post(request):
