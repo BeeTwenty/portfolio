@@ -67,14 +67,14 @@
     {% endblock %}
 
     {% block footer %}
-    <div class="footer is-light" >
-        <footer class="footer">
-            <div class="content has-text-centered">
-              <p>
-                <strong>Portfolio</strong> by <a href="https://me.au11no.com">Sindre Berge</a>.
-            </div>
-          </footer>
-</div>
+    <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Portfolio</strong> by <a href="{% url 'about' %}">Sindre Berge</a>. All rights reserved.
+    </p>
+  </div>
+</footer>
+
     {% endblock %}
 </body>
 </html>
