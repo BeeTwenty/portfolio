@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 
-<section class="hero is-fullheight-with-navbar" id="landing">
+<!-- Hero Section -->
+<section class="hero is-fullheight-with-navbar" id="landing" style="background-image: url('{% static 'images/hero-background.jpg' %}');">
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title is-1">
@@ -11,12 +12,12 @@
       <h2 class="subtitle is-3">
         Self-Taught IT Enthusiast
       </h2>
-      <a class="button is-primary is-large">Explore My Work</a>
+      <a href="{% url 'projects' %}" class="button is-primary is-large">Explore My Work</a>
     </div>
   </div>
 </section>
 
-
+<!-- Info Section 1 -->
 <div class="container mt-6">
   <section class="section" id="main-content">
     <div class="box" id="dark">
@@ -29,35 +30,27 @@
   </section>
 </div>
 
-
-  <section class="section" id="latest-blog-post">
-  <div class="container">
-      <div class="columns is-centered">
-          <div class="column is-half">
-              <div class="card">
-                  <header class="card-header">
-                      <p class="card-header-title">
-                            Latest Project
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <div class="content">
-                            {% if latest_project.image %}
-                                <img src="{{ latest_project.image.url }}" alt="{{ latest_project.title }}" class="image">
-                            {% else %}
-                                <img src="{% static 'images/default-thumbnail.jpg' %}" alt="Default Image" class="image">
-                            {% endif %}
-                            <h2><strong>{{ latest_project.title }}</strong></h2>
-                            <p>{{ latest_project.description }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- Projects Section -->
+{% for project in projects %}
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}">
+    </figure>
+  </div>
+  <div class="card-content">
+    <p class="title is-4">{{ project.title }}</p>
+    <p class="subtitle is-6">@{{ project.user.username }}</p>
+    <div class="content">
+      {{ project.description|truncatewords:30 }}
+      <br>
+      <time datetime="{{ project.created_at }}">{{ project.created_at }}</time>
     </div>
-</section>
+  </div>
+</div>
+{% endfor %}
 
-
+<!-- Info Section 2 -->
 <div class="container mt-6">
   <section class="section" id="main-content">
     <div class="box" id="dark">
@@ -70,34 +63,34 @@
   </section>
 </div>
 
+<!-- Latest Blog Post Section -->
 <section class="section" id="latest-blog-post">
   <div class="container">
-      <div class="columns is-centered">
-          <div class="column is-half">
-              <div class="card">
-                  <header class="card-header">
-                      <p class="card-header-title">
-                          Latest Blog Post
-                      </p>
-                  </header>
-                  <div class="card-content">
-                      <div class="content">
-                          <article class="media">
-                              <div class="media-content">
-                                  <div class="content">
-                                    
-                                      <strong>{{ latest_blog.title }}</strong>
-                                      <p>{{ latest_blog.content|safe|slice:":200" }}</p>
-                                      <br>
-                                      <p>Continue reading in the <a href="{% url 'blog' %}">Blog</p>
-                                  </div>
-                              </div>
-                          </article>
-                      </div>
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Latest Blog Post
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <article class="media">
+                <div class="media-content">
+                  <div class="content">
+                    <strong>{{ latest_blog.title }}</strong>
+                    <p>{{ latest_blog.content|safe|slice:":200" }}</p>
+                    <br>
+                    <p>Continue reading in the <a href="{% url 'blog' %}">Blog</p>
                   </div>
-              </div>
+                </div>
+              </article>
+            </div>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </section>
 
